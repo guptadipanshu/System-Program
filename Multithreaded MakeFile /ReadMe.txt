@@ -1,0 +1,13 @@
+This code does the follwing task-
+application which will imitate the common make utility
+Uses complex design which has multiple threads accessing critcal sections together
+To avoid data corruption and race condtions Semaphores are used
+
+To run the code-
+
+make clean
+make
+./parmake [ -f makefile ] [ -j threads] [ targets ]
+For example:
+./parmake -f testfile4 -j 2
+

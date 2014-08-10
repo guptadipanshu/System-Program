@@ -1,0 +1,28 @@
+Code does the following-
+Parllel merge sort implemented using pthreads
+Speeds the process of sorting large dataset by 10 times.
+
+To run-
+make clean
+make
+
+To run this program, you will need to generate input data using ./gen. You can use ./gen to generate a random set of numbers by using, for example:
+./gen 100 >file.txt
+...to generate 100 numbers.
+
+You can also use ./gen to generate numbers within a range. For example:
+./gen --min 0 --max 100 100 >file.txt
+...will generate 100 random numbers in the range of [0, 100]. Since the numbers are random, there will almost certainly be duplicates.
+
+To run your program with a given input, supply the number of segments and the input file:
+./msort 5 <example1.txt
+
+test the time our program takes to run by using the Linux time command.
+
+With one large segment:
+$ time ./msort 1 <example3.txt >/dev/null
+Sorted 12345678 elements.
+
+real 0m7.955s
+user 0m7.879s
+sys 0m0.069s

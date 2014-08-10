@@ -1,0 +1,1312 @@
+== CS 241 Autograder Note: ==
+This autograder is a preliminary assessment of your program's correctness. Your
+grade may change UP OR DOWN based on the CORRECTNESS OF YOUR PROGRAM. We make every effort to ensure
+that our autograder is 'smart' enough to not count off for simple things like grammar but, in doing so,
+we may inadvertently allow for incorrect code to be counted as correct. If we have to change our script
+to better reflect the CORRECTNESS OF YOUR PROGRAM, we will run the script on EVERY PROGRAM and update
+EVERY AUTOGRADER OUTPUT to ensure fairness to all students. Thanks for understanding! - CS 241 Staff
+
+(Please note, this autograder does not reflect a late submission penalty. This will be applied on Compass.)
+
+
+=== MP5 Autograder Summary ===
+Program Execution Score (90% weight): 85.0/100.0 (85.0%)
+Program Heap Freed (5% weight): FAILED (0%)
+Correct Memory Usage (5% weight): FAILED (0%)
+
+
+=== MP5 Scoring Breakdown ===
+--- Details for "MP5" ---
+Total "MP5" Sub-Score: 85.0
+	... Details for "MP5", "libpriqueue"...
+	Total "MP5", "libpriqueue" Sub-Score: 30.0
+		libpriqueue tests
+	... Details for "MP5", "libscheduler"...
+	Total "MP5", "libscheduler" Sub-Score: 55.0
+		libscheduler tests
+
+
+
+
+=== MP5 Raw Autograder Log ===
+[config]: Initializing the AssignmentGrader class "mp5"...
+[config]: Initializing the SegmentGrader class "mp5_1". Loading...
+[config]: Assignment initalization complete!
+[info]: The submission in "/srv/local/cs241grader/chen208/fa13-cs241/dgupta13" for assignment "mp5" is ready to be graded. Running grading tasks...
+[info]: Beginning to grade assignment "MP5"...
+[fine]: Launching assignment-specific code for "MP5", "MP5"...
+[finer]: Running command [make] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: gcc -c -W -Wall -g -I. simulator.c -o simulator.o
+[finest]: [stdout:2]: gcc -c -W -Wall -g -I. libscheduler/libscheduler.c -o libscheduler/libscheduler.o
+[finest]: [stdout:3]: gcc -c -W -Wall -g -I. libpriqueue/libpriqueue.c -o libpriqueue/libpriqueue.o
+[finest]: [stdout:4]: gcc simulator.o libscheduler/libscheduler.o libpriqueue/libpriqueue.o -o simulator
+[finest]: [stdout:5]: gcc -c -W -Wall -g -I. queuetest.c -o queuetest.o
+[finest]: [stdout:6]: gcc queuetest.o libpriqueue/libpriqueue.o -o queuetest
+[finest]: [stdout:7]: gcc q2.c libpriqueue/libpriqueue.o -o q2
+[finest]: [stderr:1]: libscheduler/libscheduler.c: In function âscheduler_new_jobâ:
+[finest]: [stderr:2]: libscheduler/libscheduler.c:174: warning: unused variable âval2â
+[finest]: [stderr:3]: libscheduler/libscheduler.c:150: warning: unused variable âtâ
+[finest]: [stderr:4]: libscheduler/libscheduler.c: In function âscheduler_job_finishedâ:
+[finest]: [stderr:5]: libscheduler/libscheduler.c:393: warning: unused variable âval1â
+[finest]: [stderr:6]: libscheduler/libscheduler.c: In function âscheduler_quantum_expiredâ:
+[finest]: [stderr:7]: libscheduler/libscheduler.c:601: warning: unused parameter âcore_idâ
+[fine]: Launching segment-specific code for "MP5", "MP5", "MP5"...
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "libpriqueue"...
+[finer]: Running command [mp5-autograde/queuetest] with a timeout of 5000ms.
+[finer]: Completed execution of "mp5-autograde/queuetest" with exit code = 0.
+[finest]: [stdout:1]: 
+[finest]: [stdout:2]: 30.000000
+[fine]: Launching element-specific code for "MP5", "MP5", "MP5", "libscheduler"...
+[finer]: Running command [perl mp5-autograde/examples.pl] with a timeout of 50000ms.
+[finer]: Completed execution of "perl" with exit code = 0.
+[finest]: [stdout:1]: 55
+[fine]: Launching memory grader code for "MP5"...
+[finer]: Running command [valgrind --leak-check=full --show-reachable=yes --num-callers=20 --child-silent-after-fork=yes mp5-autograde/simulator -s ppri -c 4 mp5-autograde/examples/proc3.csv] with a timeout of 30000ms.
+[finer]: Completed execution of "valgrind" with exit code = 0.
+[finest]: [stdout:1]: Loaded 4 core(s) and 18 job(s) using Preemptive Priority (PPRI) scheduling...
+[finest]: [stdout:2]: 
+[finest]: [stdout:3]: === [TIME 0] ===
+[finest]: [stdout:4]: A new job, job 0 (running time=3, priority=2), arrived. Job 0 is now running on core 0.
+[finest]: [stdout:5]:   Queue: 
+[finest]: [stdout:6]: 
+[finest]: [stdout:7]: At the end of time unit 0...
+[finest]: [stdout:8]:   Core  0: 0
+[finest]: [stdout:9]:   Core  1: -
+[finest]: [stdout:10]:   Core  2: -
+[finest]: [stdout:11]:   Core  3: -
+[finest]: [stdout:12]: 
+[finest]: [stdout:13]:   Queue: 
+[finest]: [stdout:14]: 
+[finest]: [stdout:15]: === [TIME 1] ===
+[finest]: [stdout:16]: A new job, job 1 (running time=20, priority=3), arrived. Job 1 is now running on core 1.
+[finest]: [stdout:17]:   Queue: 
+[finest]: [stdout:18]: 
+[finest]: [stdout:19]: At the end of time unit 1...
+[finest]: [stdout:20]:   Core  0: 00
+[finest]: [stdout:21]:   Core  1: -1
+[finest]: [stdout:22]:   Core  2: --
+[finest]: [stdout:23]:   Core  3: --
+[finest]: [stdout:24]: 
+[finest]: [stdout:25]:   Queue: 
+[finest]: [stdout:26]: 
+[finest]: [stdout:27]: === [TIME 2] ===
+[finest]: [stdout:28]: A new job, job 2 (running time=5, priority=1), arrived. Job 2 is now running on core 2.
+[finest]: [stdout:29]:   Queue: 
+[finest]: [stdout:30]: 
+[finest]: [stdout:31]: At the end of time unit 2...
+[finest]: [stdout:32]:   Core  0: 000
+[finest]: [stdout:33]:   Core  1: -11
+[finest]: [stdout:34]:   Core  2: --2
+[finest]: [stdout:35]:   Core  3: ---
+[finest]: [stdout:36]: 
+[finest]: [stdout:37]:   Queue: 
+[finest]: [stdout:38]: 
+[finest]: [stdout:39]: === [TIME 3] ===
+[finest]: [stdout:40]: Job 0, running on core 0, finished. Core 0 is now running job -1.
+[finest]: [stdout:41]:   Queue: 
+[finest]: [stdout:42]: 
+[finest]: [stdout:43]: A new job, job 3 (running time=2, priority=4), arrived. Job 3 is now running on core 0.
+[finest]: [stdout:44]:   Queue: 
+[finest]: [stdout:45]: 
+[finest]: [stdout:46]: At the end of time unit 3...
+[finest]: [stdout:47]:   Core  0: 0003
+[finest]: [stdout:48]:   Core  1: -111
+[finest]: [stdout:49]:   Core  2: --22
+[finest]: [stdout:50]:   Core  3: ----
+[finest]: [stdout:51]: 
+[finest]: [stdout:52]:   Queue: 
+[finest]: [stdout:53]: 
+[finest]: [stdout:54]: === [TIME 4] ===
+[finest]: [stdout:55]: A new job, job 4 (running time=4, priority=5), arrived. Job 4 is now running on core 3.
+[finest]: [stdout:56]:   Queue: 
+[finest]: [stdout:57]: 
+[finest]: [stdout:58]: At the end of time unit 4...
+[finest]: [stdout:59]:   Core  0: 00033
+[finest]: [stdout:60]:   Core  1: -1111
+[finest]: [stdout:61]:   Core  2: --222
+[finest]: [stdout:62]:   Core  3: ----4
+[finest]: [stdout:63]: 
+[finest]: [stdout:64]:   Queue: 
+[finest]: [stdout:65]: 
+[finest]: [stdout:66]: === [TIME 5] ===
+[finest]: [stdout:67]: Job 3, running on core 0, finished. Core 0 is now running job -1.
+[finest]: [stdout:68]:   Queue: 
+[finest]: [stdout:69]: 
+[finest]: [stdout:70]: A new job, job 5 (running time=8, priority=3), arrived. Job 5 is now running on core 0.
+[finest]: [stdout:71]:   Queue: 
+[finest]: [stdout:72]: 
+[finest]: [stdout:73]: At the end of time unit 5...
+[finest]: [stdout:74]:   Core  0: 000335
+[finest]: [stdout:75]:   Core  1: -11111
+[finest]: [stdout:76]:   Core  2: --2222
+[finest]: [stdout:77]:   Core  3: ----44
+[finest]: [stdout:78]: 
+[finest]: [stdout:79]:   Queue: 
+[finest]: [stdout:80]: 
+[finest]: [stdout:81]: === [TIME 6] ===
+[finest]: [stdout:82]: A new job, job 6 (running time=11, priority=2), arrived. Job 6 is now running on core 0.
+[finest]: [stdout:83]:   Queue: 
+[finest]: [stdout:84]: 
+[finest]: [stdout:85]: At the end of time unit 6...
+[finest]: [stdout:86]:   Core  0: 0003356
+[finest]: [stdout:87]:   Core  1: -111111
+[finest]: [stdout:88]:   Core  2: --22222
+[finest]: [stdout:89]:   Core  3: ----444
+[finest]: [stdout:90]: 
+[finest]: [stdout:91]:   Queue: 
+[finest]: [stdout:92]: 
+[finest]: [stdout:93]: === [TIME 7] ===
+[finest]: [stdout:94]: Job 2, running on core 2, finished. Core 2 is now running job 5.
+[finest]: [stdout:95]:   Queue: 
+[finest]: [stdout:96]: 
+[finest]: [stdout:97]: A new job, job 7 (running time=3, priority=4), arrived. Job 7 is set to idle (-1).
+[finest]: [stdout:98]:   Queue: 
+[finest]: [stdout:99]: 
+[finest]: [stdout:100]: At the end of time unit 7...
+[finest]: [stdout:101]:   Core  0: 00033566
+[finest]: [stdout:102]:   Core  1: -1111111
+[finest]: [stdout:103]:   Core  2: --222225
+[finest]: [stdout:104]:   Core  3: ----4444
+[finest]: [stdout:105]: 
+[finest]: [stdout:106]:   Queue: 
+[finest]: [stdout:107]: 
+[finest]: [stdout:108]: === [TIME 8] ===
+[finest]: [stdout:109]: Job 4, running on core 3, finished. Core 3 is now running job 7.
+[finest]: [stdout:110]:   Queue: 
+[finest]: [stdout:111]: 
+[finest]: [stdout:112]: A new job, job 8 (running time=15, priority=1), arrived. Job 8 is now running on core 3.
+[finest]: [stdout:113]:   Queue: 
+[finest]: [stdout:114]: 
+[finest]: [stdout:115]: At the end of time unit 8...
+[finest]: [stdout:116]:   Core  0: 000335666
+[finest]: [stdout:117]:   Core  1: -11111111
+[finest]: [stdout:118]:   Core  2: --2222255
+[finest]: [stdout:119]:   Core  3: ----44448
+[finest]: [stdout:120]: 
+[finest]: [stdout:121]:   Queue: 
+[finest]: [stdout:122]: 
+[finest]: [stdout:123]: === [TIME 9] ===
+[finest]: [stdout:124]: A new job, job 9 (running time=9, priority=4), arrived. Job 9 is set to idle (-1).
+[finest]: [stdout:125]:   Queue: 
+[finest]: [stdout:126]: 
+[finest]: [stdout:127]: At the end of time unit 9...
+[finest]: [stdout:128]:   Core  0: 0003356666
+[finest]: [stdout:129]:   Core  1: -111111111
+[finest]: [stdout:130]:   Core  2: --22222555
+[finest]: [stdout:131]:   Core  3: ----444488
+[finest]: [stdout:132]: 
+[finest]: [stdout:133]:   Queue: 
+[finest]: [stdout:134]: 
+[finest]: [stdout:135]: === [TIME 10] ===
+[finest]: [stdout:136]: A new job, job 10 (running time=12, priority=2), arrived. Job 10 is set to idle (-1).
+[finest]: [stdout:137]:   Queue: 
+[finest]: [stdout:138]: 
+[finest]: [stdout:139]: At the end of time unit 10...
+[finest]: [stdout:140]:   Core  0: 00033566666
+[finest]: [stdout:141]:   Core  1: -1111111111
+[finest]: [stdout:142]:   Core  2: --222225555
+[finest]: [stdout:143]:   Core  3: ----4444888
+[finest]: [stdout:144]: 
+[finest]: [stdout:145]:   Queue: 
+[finest]: [stdout:146]: 
+[finest]: [stdout:147]: === [TIME 11] ===
+[finest]: [stdout:148]: A new job, job 11 (running time=9, priority=3), arrived. Job 11 is set to idle (-1).
+[finest]: [stdout:149]:   Queue: 
+[finest]: [stdout:150]: 
+[finest]: [stdout:151]: At the end of time unit 11...
+[finest]: [stdout:152]:   Core  0: 000335666666
+[finest]: [stdout:153]:   Core  1: -11111111111
+[finest]: [stdout:154]:   Core  2: --2222255555
+[finest]: [stdout:155]:   Core  3: ----44448888
+[finest]: [stdout:156]: 
+[finest]: [stdout:157]:   Queue: 
+[finest]: [stdout:158]: 
+[finest]: [stdout:159]: === [TIME 12] ===
+[finest]: [stdout:160]: A new job, job 12 (running time=14, priority=2), arrived. Job 12 is set to idle (-1).
+[finest]: [stdout:161]:   Queue: 
+[finest]: [stdout:162]: 
+[finest]: [stdout:163]: At the end of time unit 12...
+[finest]: [stdout:164]:   Core  0: 0003356666666
+[finest]: [stdout:165]:   Core  1: -111111111111
+[finest]: [stdout:166]:   Core  2: --22222555555
+[finest]: [stdout:167]:   Core  3: ----444488888
+[finest]: [stdout:168]: 
+[finest]: [stdout:169]:   Queue: 
+[finest]: [stdout:170]: 
+[finest]: [stdout:171]: === [TIME 13] ===
+[finest]: [stdout:172]: A new job, job 13 (running time=2, priority=5), arrived. Job 13 is set to idle (-1).
+[finest]: [stdout:173]:   Queue: 
+[finest]: [stdout:174]: 
+[finest]: [stdout:175]: At the end of time unit 13...
+[finest]: [stdout:176]:   Core  0: 00033566666666
+[finest]: [stdout:177]:   Core  1: -1111111111111
+[finest]: [stdout:178]:   Core  2: --222225555555
+[finest]: [stdout:179]:   Core  3: ----4444888888
+[finest]: [stdout:180]: 
+[finest]: [stdout:181]:   Queue: 
+[finest]: [stdout:182]: 
+[finest]: [stdout:183]: === [TIME 14] ===
+[finest]: [stdout:184]: Job 5, running on core 2, finished. Core 2 is now running job 10.
+[finest]: [stdout:185]:   Queue: 
+[finest]: [stdout:186]: 
+[finest]: [stdout:187]: A new job, job 14 (running time=7, priority=3), arrived. Job 14 is set to idle (-1).
+[finest]: [stdout:188]:   Queue: 
+[finest]: [stdout:189]: 
+[finest]: [stdout:190]: At the end of time unit 14...
+[finest]: [stdout:191]:   Core  0: 000335666666666
+[finest]: [stdout:192]:   Core  1: -11111111111111
+[finest]: [stdout:193]:   Core  2: --222225555555a
+[finest]: [stdout:194]:   Core  3: ----44448888888
+[finest]: [stdout:195]: 
+[finest]: [stdout:196]:   Queue: 
+[finest]: [stdout:197]: 
+[finest]: [stdout:198]: === [TIME 15] ===
+[finest]: [stdout:199]: A new job, job 15 (running time=12, priority=2), arrived. Job 15 is set to idle (-1).
+[finest]: [stdout:200]:   Queue: 
+[finest]: [stdout:201]: 
+[finest]: [stdout:202]: At the end of time unit 15...
+[finest]: [stdout:203]:   Core  0: 0003356666666666
+[finest]: [stdout:204]:   Core  1: -111111111111111
+[finest]: [stdout:205]:   Core  2: --222225555555aa
+[finest]: [stdout:206]:   Core  3: ----444488888888
+[finest]: [stdout:207]: 
+[finest]: [stdout:208]:   Queue: 
+[finest]: [stdout:209]: 
+[finest]: [stdout:210]: === [TIME 16] ===
+[finest]: [stdout:211]: A new job, job 16 (running time=15, priority=1), arrived. Job 16 is now running on core 2.
+[finest]: [stdout:212]:   Queue: 
+[finest]: [stdout:213]: 
+[finest]: [stdout:214]: At the end of time unit 16...
+[finest]: [stdout:215]:   Core  0: 00033566666666666
+[finest]: [stdout:216]:   Core  1: -1111111111111111
+[finest]: [stdout:217]:   Core  2: --222225555555aag
+[finest]: [stdout:218]:   Core  3: ----4444888888888
+[finest]: [stdout:219]: 
+[finest]: [stdout:220]:   Queue: 
+[finest]: [stdout:221]: 
+[finest]: [stdout:222]: === [TIME 17] ===
+[finest]: [stdout:223]: Job 6, running on core 0, finished. Core 0 is now running job 10.
+[finest]: [stdout:224]:   Queue: 
+[finest]: [stdout:225]: 
+[finest]: [stdout:226]: A new job, job 17 (running time=9, priority=4), arrived. Job 17 is set to idle (-1).
+[finest]: [stdout:227]:   Queue: 
+[finest]: [stdout:228]: 
+[finest]: [stdout:229]: At the end of time unit 17...
+[finest]: [stdout:230]:   Core  0: 00033566666666666a
+[finest]: [stdout:231]:   Core  1: -11111111111111111
+[finest]: [stdout:232]:   Core  2: --222225555555aagg
+[finest]: [stdout:233]:   Core  3: ----44448888888888
+[finest]: [stdout:234]: 
+[finest]: [stdout:235]:   Queue: 
+[finest]: [stdout:236]: 
+[finest]: [stdout:237]: === [TIME 18] ===
+[finest]: [stdout:238]: At the end of time unit 18...
+[finest]: [stdout:239]:   Core  0: 00033566666666666aa
+[finest]: [stdout:240]:   Core  1: -111111111111111111
+[finest]: [stdout:241]:   Core  2: --222225555555aaggg
+[finest]: [stdout:242]:   Core  3: ----444488888888888
+[finest]: [stdout:243]: 
+[finest]: [stdout:244]:   Queue: 
+[finest]: [stdout:245]: 
+[finest]: [stdout:246]: === [TIME 19] ===
+[finest]: [stdout:247]: At the end of time unit 19...
+[finest]: [stdout:248]:   Core  0: 00033566666666666aaa
+[finest]: [stdout:249]:   Core  1: -1111111111111111111
+[finest]: [stdout:250]:   Core  2: --222225555555aagggg
+[finest]: [stdout:251]:   Core  3: ----4444888888888888
+[finest]: [stdout:252]: 
+[finest]: [stdout:253]:   Queue: 
+[finest]: [stdout:254]: 
+[finest]: [stdout:255]: === [TIME 20] ===
+[finest]: [stdout:256]: At the end of time unit 20...
+[finest]: [stdout:257]:   Core  0: 00033566666666666aaaa
+[finest]: [stdout:258]:   Core  1: -11111111111111111111
+[finest]: [stdout:259]:   Core  2: --222225555555aaggggg
+[finest]: [stdout:260]:   Core  3: ----44448888888888888
+[finest]: [stdout:261]: 
+[finest]: [stdout:262]:   Queue: 
+[finest]: [stdout:263]: 
+[finest]: [stdout:264]: === [TIME 21] ===
+[finest]: [stdout:265]: Job 1, running on core 1, finished. Core 1 is now running job 12.
+[finest]: [stdout:266]:   Queue: 
+[finest]: [stdout:267]: 
+[finest]: [stdout:268]: At the end of time unit 21...
+[finest]: [stdout:269]:   Core  0: 00033566666666666aaaaa
+[finest]: [stdout:270]:   Core  1: -11111111111111111111c
+[finest]: [stdout:271]:   Core  2: --222225555555aagggggg
+[finest]: [stdout:272]:   Core  3: ----444488888888888888
+[finest]: [stdout:273]: 
+[finest]: [stdout:274]:   Queue: 
+[finest]: [stdout:275]: 
+[finest]: [stdout:276]: === [TIME 22] ===
+[finest]: [stdout:277]: At the end of time unit 22...
+[finest]: [stdout:278]:   Core  0: 00033566666666666aaaaaa
+[finest]: [stdout:279]:   Core  1: -11111111111111111111cc
+[finest]: [stdout:280]:   Core  2: --222225555555aaggggggg
+[finest]: [stdout:281]:   Core  3: ----4444888888888888888
+[finest]: [stdout:282]: 
+[finest]: [stdout:283]:   Queue: 
+[finest]: [stdout:284]: 
+[finest]: [stdout:285]: === [TIME 23] ===
+[finest]: [stdout:286]: Job 8, running on core 3, finished. Core 3 is now running job 15.
+[finest]: [stdout:287]:   Queue: 
+[finest]: [stdout:288]: 
+[finest]: [stdout:289]: At the end of time unit 23...
+[finest]: [stdout:290]:   Core  0: 00033566666666666aaaaaaa
+[finest]: [stdout:291]:   Core  1: -11111111111111111111ccc
+[finest]: [stdout:292]:   Core  2: --222225555555aagggggggg
+[finest]: [stdout:293]:   Core  3: ----4444888888888888888f
+[finest]: [stdout:294]: 
+[finest]: [stdout:295]:   Queue: 
+[finest]: [stdout:296]: 
+[finest]: [stdout:297]: === [TIME 24] ===
+[finest]: [stdout:298]: At the end of time unit 24...
+[finest]: [stdout:299]:   Core  0: 00033566666666666aaaaaaaa
+[finest]: [stdout:300]:   Core  1: -11111111111111111111cccc
+[finest]: [stdout:301]:   Core  2: --222225555555aaggggggggg
+[finest]: [stdout:302]:   Core  3: ----4444888888888888888ff
+[finest]: [stdout:303]: 
+[finest]: [stdout:304]:   Queue: 
+[finest]: [stdout:305]: 
+[finest]: [stdout:306]: === [TIME 25] ===
+[finest]: [stdout:307]: At the end of time unit 25...
+[finest]: [stdout:308]:   Core  0: 00033566666666666aaaaaaaaa
+[finest]: [stdout:309]:   Core  1: -11111111111111111111ccccc
+[finest]: [stdout:310]:   Core  2: --222225555555aagggggggggg
+[finest]: [stdout:311]:   Core  3: ----4444888888888888888fff
+[finest]: [stdout:312]: 
+[finest]: [stdout:313]:   Queue: 
+[finest]: [stdout:314]: 
+[finest]: [stdout:315]: === [TIME 26] ===
+[finest]: [stdout:316]: At the end of time unit 26...
+[finest]: [stdout:317]:   Core  0: 00033566666666666aaaaaaaaaa
+[finest]: [stdout:318]:   Core  1: -11111111111111111111cccccc
+[finest]: [stdout:319]:   Core  2: --222225555555aaggggggggggg
+[finest]: [stdout:320]:   Core  3: ----4444888888888888888ffff
+[finest]: [stdout:321]: 
+[finest]: [stdout:322]:   Queue: 
+[finest]: [stdout:323]: 
+[finest]: [stdout:324]: === [TIME 27] ===
+[finest]: [stdout:325]: Job 10, running on core 0, finished. Core 0 is now running job 11.
+[finest]: [stdout:326]:   Queue: 
+[finest]: [stdout:327]: 
+[finest]: [stdout:328]: At the end of time unit 27...
+[finest]: [stdout:329]:   Core  0: 00033566666666666aaaaaaaaaab
+[finest]: [stdout:330]:   Core  1: -11111111111111111111ccccccc
+[finest]: [stdout:331]:   Core  2: --222225555555aagggggggggggg
+[finest]: [stdout:332]:   Core  3: ----4444888888888888888fffff
+[finest]: [stdout:333]: 
+[finest]: [stdout:334]:   Queue: 
+[finest]: [stdout:335]: 
+[finest]: [stdout:336]: === [TIME 28] ===
+[finest]: [stdout:337]: At the end of time unit 28...
+[finest]: [stdout:338]:   Core  0: 00033566666666666aaaaaaaaaabb
+[finest]: [stdout:339]:   Core  1: -11111111111111111111cccccccc
+[finest]: [stdout:340]:   Core  2: --222225555555aaggggggggggggg
+[finest]: [stdout:341]:   Core  3: ----4444888888888888888ffffff
+[finest]: [stdout:342]: 
+[finest]: [stdout:343]:   Queue: 
+[finest]: [stdout:344]: 
+[finest]: [stdout:345]: === [TIME 29] ===
+[finest]: [stdout:346]: At the end of time unit 29...
+[finest]: [stdout:347]:   Core  0: 00033566666666666aaaaaaaaaabbb
+[finest]: [stdout:348]:   Core  1: -11111111111111111111ccccccccc
+[finest]: [stdout:349]:   Core  2: --222225555555aagggggggggggggg
+[finest]: [stdout:350]:   Core  3: ----4444888888888888888fffffff
+[finest]: [stdout:351]: 
+[finest]: [stdout:352]:   Queue: 
+[finest]: [stdout:353]: 
+[finest]: [stdout:354]: === [TIME 30] ===
+[finest]: [stdout:355]: At the end of time unit 30...
+[finest]: [stdout:356]:   Core  0: 00033566666666666aaaaaaaaaabbbb
+[finest]: [stdout:357]:   Core  1: -11111111111111111111cccccccccc
+[finest]: [stdout:358]:   Core  2: --222225555555aaggggggggggggggg
+[finest]: [stdout:359]:   Core  3: ----4444888888888888888ffffffff
+[finest]: [stdout:360]: 
+[finest]: [stdout:361]:   Queue: 
+[finest]: [stdout:362]: 
+[finest]: [stdout:363]: === [TIME 31] ===
+[finest]: [stdout:364]: Job 16, running on core 2, finished. Core 2 is now running job 14.
+[finest]: [stdout:365]:   Queue: 
+[finest]: [stdout:366]: 
+[finest]: [stdout:367]: At the end of time unit 31...
+[finest]: [stdout:368]:   Core  0: 00033566666666666aaaaaaaaaabbbbb
+[finest]: [stdout:369]:   Core  1: -11111111111111111111ccccccccccc
+[finest]: [stdout:370]:   Core  2: --222225555555aaggggggggggggggge
+[finest]: [stdout:371]:   Core  3: ----4444888888888888888fffffffff
+[finest]: [stdout:372]: 
+[finest]: [stdout:373]:   Queue: 
+[finest]: [stdout:374]: 
+[finest]: [stdout:375]: === [TIME 32] ===
+[finest]: [stdout:376]: At the end of time unit 32...
+[finest]: [stdout:377]:   Core  0: 00033566666666666aaaaaaaaaabbbbbb
+[finest]: [stdout:378]:   Core  1: -11111111111111111111cccccccccccc
+[finest]: [stdout:379]:   Core  2: --222225555555aagggggggggggggggee
+[finest]: [stdout:380]:   Core  3: ----4444888888888888888ffffffffff
+[finest]: [stdout:381]: 
+[finest]: [stdout:382]:   Queue: 
+[finest]: [stdout:383]: 
+[finest]: [stdout:384]: === [TIME 33] ===
+[finest]: [stdout:385]: At the end of time unit 33...
+[finest]: [stdout:386]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbb
+[finest]: [stdout:387]:   Core  1: -11111111111111111111ccccccccccccc
+[finest]: [stdout:388]:   Core  2: --222225555555aagggggggggggggggeee
+[finest]: [stdout:389]:   Core  3: ----4444888888888888888fffffffffff
+[finest]: [stdout:390]: 
+[finest]: [stdout:391]:   Queue: 
+[finest]: [stdout:392]: 
+[finest]: [stdout:393]: === [TIME 34] ===
+[finest]: [stdout:394]: At the end of time unit 34...
+[finest]: [stdout:395]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbb
+[finest]: [stdout:396]:   Core  1: -11111111111111111111cccccccccccccc
+[finest]: [stdout:397]:   Core  2: --222225555555aagggggggggggggggeeee
+[finest]: [stdout:398]:   Core  3: ----4444888888888888888ffffffffffff
+[finest]: [stdout:399]: 
+[finest]: [stdout:400]:   Queue: 
+[finest]: [stdout:401]: 
+[finest]: [stdout:402]: === [TIME 35] ===
+[finest]: [stdout:403]: Job 15, running on core 3, finished. Core 3 is now running job 7.
+[finest]: [stdout:404]:   Queue: 
+[finest]: [stdout:405]: 
+[finest]: [stdout:406]: Job 12, running on core 1, finished. Core 1 is now running job 9.
+[finest]: [stdout:407]:   Queue: 
+[finest]: [stdout:408]: 
+[finest]: [stdout:409]: At the end of time unit 35...
+[finest]: [stdout:410]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbb
+[finest]: [stdout:411]:   Core  1: -11111111111111111111cccccccccccccc9
+[finest]: [stdout:412]:   Core  2: --222225555555aagggggggggggggggeeeee
+[finest]: [stdout:413]:   Core  3: ----4444888888888888888ffffffffffff7
+[finest]: [stdout:414]: 
+[finest]: [stdout:415]:   Queue: 
+[finest]: [stdout:416]: 
+[finest]: [stdout:417]: === [TIME 36] ===
+[finest]: [stdout:418]: Job 11, running on core 0, finished. Core 0 is now running job 17.
+[finest]: [stdout:419]:   Queue: 
+[finest]: [stdout:420]: 
+[finest]: [stdout:421]: At the end of time unit 36...
+[finest]: [stdout:422]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbh
+[finest]: [stdout:423]:   Core  1: -11111111111111111111cccccccccccccc99
+[finest]: [stdout:424]:   Core  2: --222225555555aagggggggggggggggeeeeee
+[finest]: [stdout:425]:   Core  3: ----4444888888888888888ffffffffffff77
+[finest]: [stdout:426]: 
+[finest]: [stdout:427]:   Queue: 
+[finest]: [stdout:428]: 
+[finest]: [stdout:429]: === [TIME 37] ===
+[finest]: [stdout:430]: At the end of time unit 37...
+[finest]: [stdout:431]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhh
+[finest]: [stdout:432]:   Core  1: -11111111111111111111cccccccccccccc999
+[finest]: [stdout:433]:   Core  2: --222225555555aagggggggggggggggeeeeeee
+[finest]: [stdout:434]:   Core  3: ----4444888888888888888ffffffffffff777
+[finest]: [stdout:435]: 
+[finest]: [stdout:436]:   Queue: 
+[finest]: [stdout:437]: 
+[finest]: [stdout:438]: === [TIME 38] ===
+[finest]: [stdout:439]: Job 7, running on core 3, finished. Core 3 is now running job 13.
+[finest]: [stdout:440]:   Queue: 
+[finest]: [stdout:441]: 
+[finest]: [stdout:442]: Job 14, running on core 2, finished. Core 2 is now running job -1.
+[finest]: [stdout:443]:   Queue: 
+[finest]: [stdout:444]: 
+[finest]: [stdout:445]: At the end of time unit 38...
+[finest]: [stdout:446]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhh
+[finest]: [stdout:447]:   Core  1: -11111111111111111111cccccccccccccc9999
+[finest]: [stdout:448]:   Core  2: --222225555555aagggggggggggggggeeeeeee-
+[finest]: [stdout:449]:   Core  3: ----4444888888888888888ffffffffffff777d
+[finest]: [stdout:450]: 
+[finest]: [stdout:451]:   Queue: 
+[finest]: [stdout:452]: 
+[finest]: [stdout:453]: === [TIME 39] ===
+[finest]: [stdout:454]: At the end of time unit 39...
+[finest]: [stdout:455]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhh
+[finest]: [stdout:456]:   Core  1: -11111111111111111111cccccccccccccc99999
+[finest]: [stdout:457]:   Core  2: --222225555555aagggggggggggggggeeeeeee--
+[finest]: [stdout:458]:   Core  3: ----4444888888888888888ffffffffffff777dd
+[finest]: [stdout:459]: 
+[finest]: [stdout:460]:   Queue: 
+[finest]: [stdout:461]: 
+[finest]: [stdout:462]: === [TIME 40] ===
+[finest]: [stdout:463]: Job 13, running on core 3, finished. Core 3 is now running job -1.
+[finest]: [stdout:464]:   Queue: 
+[finest]: [stdout:465]: 
+[finest]: [stdout:466]: At the end of time unit 40...
+[finest]: [stdout:467]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhh
+[finest]: [stdout:468]:   Core  1: -11111111111111111111cccccccccccccc999999
+[finest]: [stdout:469]:   Core  2: --222225555555aagggggggggggggggeeeeeee---
+[finest]: [stdout:470]:   Core  3: ----4444888888888888888ffffffffffff777dd-
+[finest]: [stdout:471]: 
+[finest]: [stdout:472]:   Queue: 
+[finest]: [stdout:473]: 
+[finest]: [stdout:474]: === [TIME 41] ===
+[finest]: [stdout:475]: At the end of time unit 41...
+[finest]: [stdout:476]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhh
+[finest]: [stdout:477]:   Core  1: -11111111111111111111cccccccccccccc9999999
+[finest]: [stdout:478]:   Core  2: --222225555555aagggggggggggggggeeeeeee----
+[finest]: [stdout:479]:   Core  3: ----4444888888888888888ffffffffffff777dd--
+[finest]: [stdout:480]: 
+[finest]: [stdout:481]:   Queue: 
+[finest]: [stdout:482]: 
+[finest]: [stdout:483]: === [TIME 42] ===
+[finest]: [stdout:484]: At the end of time unit 42...
+[finest]: [stdout:485]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhh
+[finest]: [stdout:486]:   Core  1: -11111111111111111111cccccccccccccc99999999
+[finest]: [stdout:487]:   Core  2: --222225555555aagggggggggggggggeeeeeee-----
+[finest]: [stdout:488]:   Core  3: ----4444888888888888888ffffffffffff777dd---
+[finest]: [stdout:489]: 
+[finest]: [stdout:490]:   Queue: 
+[finest]: [stdout:491]: 
+[finest]: [stdout:492]: === [TIME 43] ===
+[finest]: [stdout:493]: At the end of time unit 43...
+[finest]: [stdout:494]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhhh
+[finest]: [stdout:495]:   Core  1: -11111111111111111111cccccccccccccc999999999
+[finest]: [stdout:496]:   Core  2: --222225555555aagggggggggggggggeeeeeee------
+[finest]: [stdout:497]:   Core  3: ----4444888888888888888ffffffffffff777dd----
+[finest]: [stdout:498]: 
+[finest]: [stdout:499]:   Queue: 
+[finest]: [stdout:500]: 
+[finest]: [stdout:501]: === [TIME 44] ===
+[finest]: [stdout:502]: Job 9, running on core 1, finished. Core 1 is now running job -1.
+[finest]: [stdout:503]:   Queue: 
+[finest]: [stdout:504]: 
+[finest]: [stdout:505]: At the end of time unit 44...
+[finest]: [stdout:506]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhhhh
+[finest]: [stdout:507]:   Core  1: -11111111111111111111cccccccccccccc999999999-
+[finest]: [stdout:508]:   Core  2: --222225555555aagggggggggggggggeeeeeee-------
+[finest]: [stdout:509]:   Core  3: ----4444888888888888888ffffffffffff777dd-----
+[finest]: [stdout:510]: 
+[finest]: [stdout:511]:   Queue: 
+[finest]: [stdout:512]: 
+[finest]: [stdout:513]: === [TIME 45] ===
+[finest]: [stdout:514]: Job 17, running on core 0, finished. Core 0 is now running job -1.
+[finest]: [stdout:515]:   Queue: 
+[finest]: [stdout:516]: 
+[finest]: [stdout:517]: FINAL TIMING DIAGRAM:
+[finest]: [stdout:518]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhhhh
+[finest]: [stdout:519]:   Core  1: -11111111111111111111cccccccccccccc999999999-
+[finest]: [stdout:520]:   Core  2: --222225555555aagggggggggggggggeeeeeee-------
+[finest]: [stdout:521]:   Core  3: ----4444888888888888888ffffffffffff777dd-----
+[finest]: [stdout:522]: 
+[finest]: [stdout:523]: Average Waiting Time: 8.56
+[finest]: [stdout:524]: Average Turnaround Time: 17.44
+[finest]: [stdout:525]: Average Response Time: 8.44
+[finest]: [stderr:1]: ==29301== Memcheck, a memory error detector
+[finest]: [stderr:2]: ==29301== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+[finest]: [stderr:3]: ==29301== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+[finest]: [stderr:4]: ==29301== Command: mp5-autograde/simulator -s ppri -c 4 mp5-autograde/examples/proc3.csv
+[finest]: [stderr:5]: ==29301== 
+[finest]: [stderr:6]: ==29301== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:7]: ==29301==    at 0x403AC6: priqueue_offer (libpriqueue.c:65)
+[finest]: [stderr:8]: ==29301==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:9]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:10]: ==29301== 
+[finest]: [stderr:11]: ==29301== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:12]: ==29301==    at 0x403BBF: priqueue_offer (libpriqueue.c:105)
+[finest]: [stderr:13]: ==29301==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:14]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:15]: ==29301== 
+[finest]: [stderr:16]: ==29301== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:17]: ==29301==    at 0x403AC6: priqueue_offer (libpriqueue.c:65)
+[finest]: [stderr:18]: ==29301==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:19]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:20]: ==29301== 
+[finest]: [stderr:21]: ==29301== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:22]: ==29301==    at 0x403BBF: priqueue_offer (libpriqueue.c:105)
+[finest]: [stderr:23]: ==29301==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:24]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:25]: ==29301== 
+[finest]: [stderr:26]: ==29301== 
+[finest]: [stderr:27]: ==29301== HEAP SUMMARY:
+[finest]: [stderr:28]: ==29301==     in use at exit: 424 bytes in 40 blocks
+[finest]: [stderr:29]: ==29301==   total heap usage: 67 allocs, 27 frees, 6,724 bytes allocated
+[finest]: [stderr:30]: ==29301== 
+[finest]: [stderr:31]: ==29301== 4 bytes in 1 blocks are still reachable in loss record 1 of 8
+[finest]: [stderr:32]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:33]: ==29301==    by 0x4027D3: scheduler_new_job (libscheduler.c:157)
+[finest]: [stderr:34]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:35]: ==29301== 
+[finest]: [stderr:36]: ==29301== 16 bytes in 1 blocks are still reachable in loss record 2 of 8
+[finest]: [stderr:37]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:38]: ==29301==    by 0x4025F1: scheduler_start_up (libscheduler.c:81)
+[finest]: [stderr:39]: ==29301==    by 0x401588: main (simulator.c:230)
+[finest]: [stderr:40]: ==29301== 
+[finest]: [stderr:41]: ==29301== 16 bytes in 1 blocks are still reachable in loss record 3 of 8
+[finest]: [stderr:42]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:43]: ==29301==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:44]: ==29301==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:45]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:46]: ==29301== 
+[finest]: [stderr:47]: ==29301== 16 bytes in 1 blocks are indirectly lost in loss record 4 of 8
+[finest]: [stderr:48]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:49]: ==29301==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:50]: ==29301==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:51]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:52]: ==29301== 
+[finest]: [stderr:53]: ==29301== 32 bytes in 2 blocks are definitely lost in loss record 5 of 8
+[finest]: [stderr:54]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:55]: ==29301==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:56]: ==29301==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:57]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:58]: ==29301== 
+[finest]: [stderr:59]: ==29301== 68 bytes in 17 blocks are indirectly lost in loss record 6 of 8
+[finest]: [stderr:60]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:61]: ==29301==    by 0x4027D3: scheduler_new_job (libscheduler.c:157)
+[finest]: [stderr:62]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:63]: ==29301== 
+[finest]: [stderr:64]: ==29301== 96 bytes in 6 blocks are indirectly lost in loss record 7 of 8
+[finest]: [stderr:65]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:66]: ==29301==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:67]: ==29301==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:68]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:69]: ==29301== 
+[finest]: [stderr:70]: ==29301== 356 (176 direct, 180 indirect) bytes in 11 blocks are definitely lost in loss record 8 of 8
+[finest]: [stderr:71]: ==29301==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:72]: ==29301==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:73]: ==29301==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:74]: ==29301==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:75]: ==29301== 
+[finest]: [stderr:76]: ==29301== LEAK SUMMARY:
+[finest]: [stderr:77]: ==29301==    definitely lost: 208 bytes in 13 blocks
+[finest]: [stderr:78]: ==29301==    indirectly lost: 180 bytes in 24 blocks
+[finest]: [stderr:79]: ==29301==      possibly lost: 0 bytes in 0 blocks
+[finest]: [stderr:80]: ==29301==    still reachable: 36 bytes in 3 blocks
+[finest]: [stderr:81]: ==29301==         suppressed: 0 bytes in 0 blocks
+[finest]: [stderr:82]: ==29301== 
+[finest]: [stderr:83]: ==29301== For counts of detected and suppressed errors, rerun with: -v
+[finest]: [stderr:84]: ==29301== Use --track-origins=yes to see where uninitialised values come from
+[finest]: [stderr:85]: ==29301== ERROR SUMMARY: 18 errors from 6 contexts (suppressed: 6 from 6)
+[finer]: Testing for string "All heap blocks were freed -- no leaks are possible" in process output.
+[finer]: String was not found in process output.
+[finer]: Testing for string "pthread" in process output.
+[finer]: String was not found in process output.
+[finer]: Testing for string "pthread" in process output.
+[finer]: String was not found in process output.
+[finer]: Testing for string "pthread" in process output.
+[finer]: String was not found in process output.
+[warning]: Not all memory was freed by target program!
+[fine]: Launching memory grader code for "MP5"...
+[finer]: Running command [valgrind --leak-check=full --show-reachable=yes --num-callers=20 --child-silent-after-fork=yes mp5-autograde/simulator -s ppri -c 4 mp5-autograde/examples/proc3.csv] with a timeout of 30000ms.
+[finer]: Completed execution of "valgrind" with exit code = 0.
+[finest]: [stdout:1]: Loaded 4 core(s) and 18 job(s) using Preemptive Priority (PPRI) scheduling...
+[finest]: [stdout:2]: 
+[finest]: [stdout:3]: === [TIME 0] ===
+[finest]: [stdout:4]: A new job, job 0 (running time=3, priority=2), arrived. Job 0 is now running on core 0.
+[finest]: [stdout:5]:   Queue: 
+[finest]: [stdout:6]: 
+[finest]: [stdout:7]: At the end of time unit 0...
+[finest]: [stdout:8]:   Core  0: 0
+[finest]: [stdout:9]:   Core  1: -
+[finest]: [stdout:10]:   Core  2: -
+[finest]: [stdout:11]:   Core  3: -
+[finest]: [stdout:12]: 
+[finest]: [stdout:13]:   Queue: 
+[finest]: [stdout:14]: 
+[finest]: [stdout:15]: === [TIME 1] ===
+[finest]: [stdout:16]: A new job, job 1 (running time=20, priority=3), arrived. Job 1 is now running on core 1.
+[finest]: [stdout:17]:   Queue: 
+[finest]: [stdout:18]: 
+[finest]: [stdout:19]: At the end of time unit 1...
+[finest]: [stdout:20]:   Core  0: 00
+[finest]: [stdout:21]:   Core  1: -1
+[finest]: [stdout:22]:   Core  2: --
+[finest]: [stdout:23]:   Core  3: --
+[finest]: [stdout:24]: 
+[finest]: [stdout:25]:   Queue: 
+[finest]: [stdout:26]: 
+[finest]: [stdout:27]: === [TIME 2] ===
+[finest]: [stdout:28]: A new job, job 2 (running time=5, priority=1), arrived. Job 2 is now running on core 2.
+[finest]: [stdout:29]:   Queue: 
+[finest]: [stdout:30]: 
+[finest]: [stdout:31]: At the end of time unit 2...
+[finest]: [stdout:32]:   Core  0: 000
+[finest]: [stdout:33]:   Core  1: -11
+[finest]: [stdout:34]:   Core  2: --2
+[finest]: [stdout:35]:   Core  3: ---
+[finest]: [stdout:36]: 
+[finest]: [stdout:37]:   Queue: 
+[finest]: [stdout:38]: 
+[finest]: [stdout:39]: === [TIME 3] ===
+[finest]: [stdout:40]: Job 0, running on core 0, finished. Core 0 is now running job -1.
+[finest]: [stdout:41]:   Queue: 
+[finest]: [stdout:42]: 
+[finest]: [stdout:43]: A new job, job 3 (running time=2, priority=4), arrived. Job 3 is now running on core 0.
+[finest]: [stdout:44]:   Queue: 
+[finest]: [stdout:45]: 
+[finest]: [stdout:46]: At the end of time unit 3...
+[finest]: [stdout:47]:   Core  0: 0003
+[finest]: [stdout:48]:   Core  1: -111
+[finest]: [stdout:49]:   Core  2: --22
+[finest]: [stdout:50]:   Core  3: ----
+[finest]: [stdout:51]: 
+[finest]: [stdout:52]:   Queue: 
+[finest]: [stdout:53]: 
+[finest]: [stdout:54]: === [TIME 4] ===
+[finest]: [stdout:55]: A new job, job 4 (running time=4, priority=5), arrived. Job 4 is now running on core 3.
+[finest]: [stdout:56]:   Queue: 
+[finest]: [stdout:57]: 
+[finest]: [stdout:58]: At the end of time unit 4...
+[finest]: [stdout:59]:   Core  0: 00033
+[finest]: [stdout:60]:   Core  1: -1111
+[finest]: [stdout:61]:   Core  2: --222
+[finest]: [stdout:62]:   Core  3: ----4
+[finest]: [stdout:63]: 
+[finest]: [stdout:64]:   Queue: 
+[finest]: [stdout:65]: 
+[finest]: [stdout:66]: === [TIME 5] ===
+[finest]: [stdout:67]: Job 3, running on core 0, finished. Core 0 is now running job -1.
+[finest]: [stdout:68]:   Queue: 
+[finest]: [stdout:69]: 
+[finest]: [stdout:70]: A new job, job 5 (running time=8, priority=3), arrived. Job 5 is now running on core 0.
+[finest]: [stdout:71]:   Queue: 
+[finest]: [stdout:72]: 
+[finest]: [stdout:73]: At the end of time unit 5...
+[finest]: [stdout:74]:   Core  0: 000335
+[finest]: [stdout:75]:   Core  1: -11111
+[finest]: [stdout:76]:   Core  2: --2222
+[finest]: [stdout:77]:   Core  3: ----44
+[finest]: [stdout:78]: 
+[finest]: [stdout:79]:   Queue: 
+[finest]: [stdout:80]: 
+[finest]: [stdout:81]: === [TIME 6] ===
+[finest]: [stdout:82]: A new job, job 6 (running time=11, priority=2), arrived. Job 6 is now running on core 0.
+[finest]: [stdout:83]:   Queue: 
+[finest]: [stdout:84]: 
+[finest]: [stdout:85]: At the end of time unit 6...
+[finest]: [stdout:86]:   Core  0: 0003356
+[finest]: [stdout:87]:   Core  1: -111111
+[finest]: [stdout:88]:   Core  2: --22222
+[finest]: [stdout:89]:   Core  3: ----444
+[finest]: [stdout:90]: 
+[finest]: [stdout:91]:   Queue: 
+[finest]: [stdout:92]: 
+[finest]: [stdout:93]: === [TIME 7] ===
+[finest]: [stdout:94]: Job 2, running on core 2, finished. Core 2 is now running job 5.
+[finest]: [stdout:95]:   Queue: 
+[finest]: [stdout:96]: 
+[finest]: [stdout:97]: A new job, job 7 (running time=3, priority=4), arrived. Job 7 is set to idle (-1).
+[finest]: [stdout:98]:   Queue: 
+[finest]: [stdout:99]: 
+[finest]: [stdout:100]: At the end of time unit 7...
+[finest]: [stdout:101]:   Core  0: 00033566
+[finest]: [stdout:102]:   Core  1: -1111111
+[finest]: [stdout:103]:   Core  2: --222225
+[finest]: [stdout:104]:   Core  3: ----4444
+[finest]: [stdout:105]: 
+[finest]: [stdout:106]:   Queue: 
+[finest]: [stdout:107]: 
+[finest]: [stdout:108]: === [TIME 8] ===
+[finest]: [stdout:109]: Job 4, running on core 3, finished. Core 3 is now running job 7.
+[finest]: [stdout:110]:   Queue: 
+[finest]: [stdout:111]: 
+[finest]: [stdout:112]: A new job, job 8 (running time=15, priority=1), arrived. Job 8 is now running on core 3.
+[finest]: [stdout:113]:   Queue: 
+[finest]: [stdout:114]: 
+[finest]: [stdout:115]: At the end of time unit 8...
+[finest]: [stdout:116]:   Core  0: 000335666
+[finest]: [stdout:117]:   Core  1: -11111111
+[finest]: [stdout:118]:   Core  2: --2222255
+[finest]: [stdout:119]:   Core  3: ----44448
+[finest]: [stdout:120]: 
+[finest]: [stdout:121]:   Queue: 
+[finest]: [stdout:122]: 
+[finest]: [stdout:123]: === [TIME 9] ===
+[finest]: [stdout:124]: A new job, job 9 (running time=9, priority=4), arrived. Job 9 is set to idle (-1).
+[finest]: [stdout:125]:   Queue: 
+[finest]: [stdout:126]: 
+[finest]: [stdout:127]: At the end of time unit 9...
+[finest]: [stdout:128]:   Core  0: 0003356666
+[finest]: [stdout:129]:   Core  1: -111111111
+[finest]: [stdout:130]:   Core  2: --22222555
+[finest]: [stdout:131]:   Core  3: ----444488
+[finest]: [stdout:132]: 
+[finest]: [stdout:133]:   Queue: 
+[finest]: [stdout:134]: 
+[finest]: [stdout:135]: === [TIME 10] ===
+[finest]: [stdout:136]: A new job, job 10 (running time=12, priority=2), arrived. Job 10 is set to idle (-1).
+[finest]: [stdout:137]:   Queue: 
+[finest]: [stdout:138]: 
+[finest]: [stdout:139]: At the end of time unit 10...
+[finest]: [stdout:140]:   Core  0: 00033566666
+[finest]: [stdout:141]:   Core  1: -1111111111
+[finest]: [stdout:142]:   Core  2: --222225555
+[finest]: [stdout:143]:   Core  3: ----4444888
+[finest]: [stdout:144]: 
+[finest]: [stdout:145]:   Queue: 
+[finest]: [stdout:146]: 
+[finest]: [stdout:147]: === [TIME 11] ===
+[finest]: [stdout:148]: A new job, job 11 (running time=9, priority=3), arrived. Job 11 is set to idle (-1).
+[finest]: [stdout:149]:   Queue: 
+[finest]: [stdout:150]: 
+[finest]: [stdout:151]: At the end of time unit 11...
+[finest]: [stdout:152]:   Core  0: 000335666666
+[finest]: [stdout:153]:   Core  1: -11111111111
+[finest]: [stdout:154]:   Core  2: --2222255555
+[finest]: [stdout:155]:   Core  3: ----44448888
+[finest]: [stdout:156]: 
+[finest]: [stdout:157]:   Queue: 
+[finest]: [stdout:158]: 
+[finest]: [stdout:159]: === [TIME 12] ===
+[finest]: [stdout:160]: A new job, job 12 (running time=14, priority=2), arrived. Job 12 is set to idle (-1).
+[finest]: [stdout:161]:   Queue: 
+[finest]: [stdout:162]: 
+[finest]: [stdout:163]: At the end of time unit 12...
+[finest]: [stdout:164]:   Core  0: 0003356666666
+[finest]: [stdout:165]:   Core  1: -111111111111
+[finest]: [stdout:166]:   Core  2: --22222555555
+[finest]: [stdout:167]:   Core  3: ----444488888
+[finest]: [stdout:168]: 
+[finest]: [stdout:169]:   Queue: 
+[finest]: [stdout:170]: 
+[finest]: [stdout:171]: === [TIME 13] ===
+[finest]: [stdout:172]: A new job, job 13 (running time=2, priority=5), arrived. Job 13 is set to idle (-1).
+[finest]: [stdout:173]:   Queue: 
+[finest]: [stdout:174]: 
+[finest]: [stdout:175]: At the end of time unit 13...
+[finest]: [stdout:176]:   Core  0: 00033566666666
+[finest]: [stdout:177]:   Core  1: -1111111111111
+[finest]: [stdout:178]:   Core  2: --222225555555
+[finest]: [stdout:179]:   Core  3: ----4444888888
+[finest]: [stdout:180]: 
+[finest]: [stdout:181]:   Queue: 
+[finest]: [stdout:182]: 
+[finest]: [stdout:183]: === [TIME 14] ===
+[finest]: [stdout:184]: Job 5, running on core 2, finished. Core 2 is now running job 10.
+[finest]: [stdout:185]:   Queue: 
+[finest]: [stdout:186]: 
+[finest]: [stdout:187]: A new job, job 14 (running time=7, priority=3), arrived. Job 14 is set to idle (-1).
+[finest]: [stdout:188]:   Queue: 
+[finest]: [stdout:189]: 
+[finest]: [stdout:190]: At the end of time unit 14...
+[finest]: [stdout:191]:   Core  0: 000335666666666
+[finest]: [stdout:192]:   Core  1: -11111111111111
+[finest]: [stdout:193]:   Core  2: --222225555555a
+[finest]: [stdout:194]:   Core  3: ----44448888888
+[finest]: [stdout:195]: 
+[finest]: [stdout:196]:   Queue: 
+[finest]: [stdout:197]: 
+[finest]: [stdout:198]: === [TIME 15] ===
+[finest]: [stdout:199]: A new job, job 15 (running time=12, priority=2), arrived. Job 15 is set to idle (-1).
+[finest]: [stdout:200]:   Queue: 
+[finest]: [stdout:201]: 
+[finest]: [stdout:202]: At the end of time unit 15...
+[finest]: [stdout:203]:   Core  0: 0003356666666666
+[finest]: [stdout:204]:   Core  1: -111111111111111
+[finest]: [stdout:205]:   Core  2: --222225555555aa
+[finest]: [stdout:206]:   Core  3: ----444488888888
+[finest]: [stdout:207]: 
+[finest]: [stdout:208]:   Queue: 
+[finest]: [stdout:209]: 
+[finest]: [stdout:210]: === [TIME 16] ===
+[finest]: [stdout:211]: A new job, job 16 (running time=15, priority=1), arrived. Job 16 is now running on core 2.
+[finest]: [stdout:212]:   Queue: 
+[finest]: [stdout:213]: 
+[finest]: [stdout:214]: At the end of time unit 16...
+[finest]: [stdout:215]:   Core  0: 00033566666666666
+[finest]: [stdout:216]:   Core  1: -1111111111111111
+[finest]: [stdout:217]:   Core  2: --222225555555aag
+[finest]: [stdout:218]:   Core  3: ----4444888888888
+[finest]: [stdout:219]: 
+[finest]: [stdout:220]:   Queue: 
+[finest]: [stdout:221]: 
+[finest]: [stdout:222]: === [TIME 17] ===
+[finest]: [stdout:223]: Job 6, running on core 0, finished. Core 0 is now running job 10.
+[finest]: [stdout:224]:   Queue: 
+[finest]: [stdout:225]: 
+[finest]: [stdout:226]: A new job, job 17 (running time=9, priority=4), arrived. Job 17 is set to idle (-1).
+[finest]: [stdout:227]:   Queue: 
+[finest]: [stdout:228]: 
+[finest]: [stdout:229]: At the end of time unit 17...
+[finest]: [stdout:230]:   Core  0: 00033566666666666a
+[finest]: [stdout:231]:   Core  1: -11111111111111111
+[finest]: [stdout:232]:   Core  2: --222225555555aagg
+[finest]: [stdout:233]:   Core  3: ----44448888888888
+[finest]: [stdout:234]: 
+[finest]: [stdout:235]:   Queue: 
+[finest]: [stdout:236]: 
+[finest]: [stdout:237]: === [TIME 18] ===
+[finest]: [stdout:238]: At the end of time unit 18...
+[finest]: [stdout:239]:   Core  0: 00033566666666666aa
+[finest]: [stdout:240]:   Core  1: -111111111111111111
+[finest]: [stdout:241]:   Core  2: --222225555555aaggg
+[finest]: [stdout:242]:   Core  3: ----444488888888888
+[finest]: [stdout:243]: 
+[finest]: [stdout:244]:   Queue: 
+[finest]: [stdout:245]: 
+[finest]: [stdout:246]: === [TIME 19] ===
+[finest]: [stdout:247]: At the end of time unit 19...
+[finest]: [stdout:248]:   Core  0: 00033566666666666aaa
+[finest]: [stdout:249]:   Core  1: -1111111111111111111
+[finest]: [stdout:250]:   Core  2: --222225555555aagggg
+[finest]: [stdout:251]:   Core  3: ----4444888888888888
+[finest]: [stdout:252]: 
+[finest]: [stdout:253]:   Queue: 
+[finest]: [stdout:254]: 
+[finest]: [stdout:255]: === [TIME 20] ===
+[finest]: [stdout:256]: At the end of time unit 20...
+[finest]: [stdout:257]:   Core  0: 00033566666666666aaaa
+[finest]: [stdout:258]:   Core  1: -11111111111111111111
+[finest]: [stdout:259]:   Core  2: --222225555555aaggggg
+[finest]: [stdout:260]:   Core  3: ----44448888888888888
+[finest]: [stdout:261]: 
+[finest]: [stdout:262]:   Queue: 
+[finest]: [stdout:263]: 
+[finest]: [stdout:264]: === [TIME 21] ===
+[finest]: [stdout:265]: Job 1, running on core 1, finished. Core 1 is now running job 12.
+[finest]: [stdout:266]:   Queue: 
+[finest]: [stdout:267]: 
+[finest]: [stdout:268]: At the end of time unit 21...
+[finest]: [stdout:269]:   Core  0: 00033566666666666aaaaa
+[finest]: [stdout:270]:   Core  1: -11111111111111111111c
+[finest]: [stdout:271]:   Core  2: --222225555555aagggggg
+[finest]: [stdout:272]:   Core  3: ----444488888888888888
+[finest]: [stdout:273]: 
+[finest]: [stdout:274]:   Queue: 
+[finest]: [stdout:275]: 
+[finest]: [stdout:276]: === [TIME 22] ===
+[finest]: [stdout:277]: At the end of time unit 22...
+[finest]: [stdout:278]:   Core  0: 00033566666666666aaaaaa
+[finest]: [stdout:279]:   Core  1: -11111111111111111111cc
+[finest]: [stdout:280]:   Core  2: --222225555555aaggggggg
+[finest]: [stdout:281]:   Core  3: ----4444888888888888888
+[finest]: [stdout:282]: 
+[finest]: [stdout:283]:   Queue: 
+[finest]: [stdout:284]: 
+[finest]: [stdout:285]: === [TIME 23] ===
+[finest]: [stdout:286]: Job 8, running on core 3, finished. Core 3 is now running job 15.
+[finest]: [stdout:287]:   Queue: 
+[finest]: [stdout:288]: 
+[finest]: [stdout:289]: At the end of time unit 23...
+[finest]: [stdout:290]:   Core  0: 00033566666666666aaaaaaa
+[finest]: [stdout:291]:   Core  1: -11111111111111111111ccc
+[finest]: [stdout:292]:   Core  2: --222225555555aagggggggg
+[finest]: [stdout:293]:   Core  3: ----4444888888888888888f
+[finest]: [stdout:294]: 
+[finest]: [stdout:295]:   Queue: 
+[finest]: [stdout:296]: 
+[finest]: [stdout:297]: === [TIME 24] ===
+[finest]: [stdout:298]: At the end of time unit 24...
+[finest]: [stdout:299]:   Core  0: 00033566666666666aaaaaaaa
+[finest]: [stdout:300]:   Core  1: -11111111111111111111cccc
+[finest]: [stdout:301]:   Core  2: --222225555555aaggggggggg
+[finest]: [stdout:302]:   Core  3: ----4444888888888888888ff
+[finest]: [stdout:303]: 
+[finest]: [stdout:304]:   Queue: 
+[finest]: [stdout:305]: 
+[finest]: [stdout:306]: === [TIME 25] ===
+[finest]: [stdout:307]: At the end of time unit 25...
+[finest]: [stdout:308]:   Core  0: 00033566666666666aaaaaaaaa
+[finest]: [stdout:309]:   Core  1: -11111111111111111111ccccc
+[finest]: [stdout:310]:   Core  2: --222225555555aagggggggggg
+[finest]: [stdout:311]:   Core  3: ----4444888888888888888fff
+[finest]: [stdout:312]: 
+[finest]: [stdout:313]:   Queue: 
+[finest]: [stdout:314]: 
+[finest]: [stdout:315]: === [TIME 26] ===
+[finest]: [stdout:316]: At the end of time unit 26...
+[finest]: [stdout:317]:   Core  0: 00033566666666666aaaaaaaaaa
+[finest]: [stdout:318]:   Core  1: -11111111111111111111cccccc
+[finest]: [stdout:319]:   Core  2: --222225555555aaggggggggggg
+[finest]: [stdout:320]:   Core  3: ----4444888888888888888ffff
+[finest]: [stdout:321]: 
+[finest]: [stdout:322]:   Queue: 
+[finest]: [stdout:323]: 
+[finest]: [stdout:324]: === [TIME 27] ===
+[finest]: [stdout:325]: Job 10, running on core 0, finished. Core 0 is now running job 11.
+[finest]: [stdout:326]:   Queue: 
+[finest]: [stdout:327]: 
+[finest]: [stdout:328]: At the end of time unit 27...
+[finest]: [stdout:329]:   Core  0: 00033566666666666aaaaaaaaaab
+[finest]: [stdout:330]:   Core  1: -11111111111111111111ccccccc
+[finest]: [stdout:331]:   Core  2: --222225555555aagggggggggggg
+[finest]: [stdout:332]:   Core  3: ----4444888888888888888fffff
+[finest]: [stdout:333]: 
+[finest]: [stdout:334]:   Queue: 
+[finest]: [stdout:335]: 
+[finest]: [stdout:336]: === [TIME 28] ===
+[finest]: [stdout:337]: At the end of time unit 28...
+[finest]: [stdout:338]:   Core  0: 00033566666666666aaaaaaaaaabb
+[finest]: [stdout:339]:   Core  1: -11111111111111111111cccccccc
+[finest]: [stdout:340]:   Core  2: --222225555555aaggggggggggggg
+[finest]: [stdout:341]:   Core  3: ----4444888888888888888ffffff
+[finest]: [stdout:342]: 
+[finest]: [stdout:343]:   Queue: 
+[finest]: [stdout:344]: 
+[finest]: [stdout:345]: === [TIME 29] ===
+[finest]: [stdout:346]: At the end of time unit 29...
+[finest]: [stdout:347]:   Core  0: 00033566666666666aaaaaaaaaabbb
+[finest]: [stdout:348]:   Core  1: -11111111111111111111ccccccccc
+[finest]: [stdout:349]:   Core  2: --222225555555aagggggggggggggg
+[finest]: [stdout:350]:   Core  3: ----4444888888888888888fffffff
+[finest]: [stdout:351]: 
+[finest]: [stdout:352]:   Queue: 
+[finest]: [stdout:353]: 
+[finest]: [stdout:354]: === [TIME 30] ===
+[finest]: [stdout:355]: At the end of time unit 30...
+[finest]: [stdout:356]:   Core  0: 00033566666666666aaaaaaaaaabbbb
+[finest]: [stdout:357]:   Core  1: -11111111111111111111cccccccccc
+[finest]: [stdout:358]:   Core  2: --222225555555aaggggggggggggggg
+[finest]: [stdout:359]:   Core  3: ----4444888888888888888ffffffff
+[finest]: [stdout:360]: 
+[finest]: [stdout:361]:   Queue: 
+[finest]: [stdout:362]: 
+[finest]: [stdout:363]: === [TIME 31] ===
+[finest]: [stdout:364]: Job 16, running on core 2, finished. Core 2 is now running job 14.
+[finest]: [stdout:365]:   Queue: 
+[finest]: [stdout:366]: 
+[finest]: [stdout:367]: At the end of time unit 31...
+[finest]: [stdout:368]:   Core  0: 00033566666666666aaaaaaaaaabbbbb
+[finest]: [stdout:369]:   Core  1: -11111111111111111111ccccccccccc
+[finest]: [stdout:370]:   Core  2: --222225555555aaggggggggggggggge
+[finest]: [stdout:371]:   Core  3: ----4444888888888888888fffffffff
+[finest]: [stdout:372]: 
+[finest]: [stdout:373]:   Queue: 
+[finest]: [stdout:374]: 
+[finest]: [stdout:375]: === [TIME 32] ===
+[finest]: [stdout:376]: At the end of time unit 32...
+[finest]: [stdout:377]:   Core  0: 00033566666666666aaaaaaaaaabbbbbb
+[finest]: [stdout:378]:   Core  1: -11111111111111111111cccccccccccc
+[finest]: [stdout:379]:   Core  2: --222225555555aagggggggggggggggee
+[finest]: [stdout:380]:   Core  3: ----4444888888888888888ffffffffff
+[finest]: [stdout:381]: 
+[finest]: [stdout:382]:   Queue: 
+[finest]: [stdout:383]: 
+[finest]: [stdout:384]: === [TIME 33] ===
+[finest]: [stdout:385]: At the end of time unit 33...
+[finest]: [stdout:386]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbb
+[finest]: [stdout:387]:   Core  1: -11111111111111111111ccccccccccccc
+[finest]: [stdout:388]:   Core  2: --222225555555aagggggggggggggggeee
+[finest]: [stdout:389]:   Core  3: ----4444888888888888888fffffffffff
+[finest]: [stdout:390]: 
+[finest]: [stdout:391]:   Queue: 
+[finest]: [stdout:392]: 
+[finest]: [stdout:393]: === [TIME 34] ===
+[finest]: [stdout:394]: At the end of time unit 34...
+[finest]: [stdout:395]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbb
+[finest]: [stdout:396]:   Core  1: -11111111111111111111cccccccccccccc
+[finest]: [stdout:397]:   Core  2: --222225555555aagggggggggggggggeeee
+[finest]: [stdout:398]:   Core  3: ----4444888888888888888ffffffffffff
+[finest]: [stdout:399]: 
+[finest]: [stdout:400]:   Queue: 
+[finest]: [stdout:401]: 
+[finest]: [stdout:402]: === [TIME 35] ===
+[finest]: [stdout:403]: Job 15, running on core 3, finished. Core 3 is now running job 7.
+[finest]: [stdout:404]:   Queue: 
+[finest]: [stdout:405]: 
+[finest]: [stdout:406]: Job 12, running on core 1, finished. Core 1 is now running job 9.
+[finest]: [stdout:407]:   Queue: 
+[finest]: [stdout:408]: 
+[finest]: [stdout:409]: At the end of time unit 35...
+[finest]: [stdout:410]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbb
+[finest]: [stdout:411]:   Core  1: -11111111111111111111cccccccccccccc9
+[finest]: [stdout:412]:   Core  2: --222225555555aagggggggggggggggeeeee
+[finest]: [stdout:413]:   Core  3: ----4444888888888888888ffffffffffff7
+[finest]: [stdout:414]: 
+[finest]: [stdout:415]:   Queue: 
+[finest]: [stdout:416]: 
+[finest]: [stdout:417]: === [TIME 36] ===
+[finest]: [stdout:418]: Job 11, running on core 0, finished. Core 0 is now running job 17.
+[finest]: [stdout:419]:   Queue: 
+[finest]: [stdout:420]: 
+[finest]: [stdout:421]: At the end of time unit 36...
+[finest]: [stdout:422]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbh
+[finest]: [stdout:423]:   Core  1: -11111111111111111111cccccccccccccc99
+[finest]: [stdout:424]:   Core  2: --222225555555aagggggggggggggggeeeeee
+[finest]: [stdout:425]:   Core  3: ----4444888888888888888ffffffffffff77
+[finest]: [stdout:426]: 
+[finest]: [stdout:427]:   Queue: 
+[finest]: [stdout:428]: 
+[finest]: [stdout:429]: === [TIME 37] ===
+[finest]: [stdout:430]: At the end of time unit 37...
+[finest]: [stdout:431]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhh
+[finest]: [stdout:432]:   Core  1: -11111111111111111111cccccccccccccc999
+[finest]: [stdout:433]:   Core  2: --222225555555aagggggggggggggggeeeeeee
+[finest]: [stdout:434]:   Core  3: ----4444888888888888888ffffffffffff777
+[finest]: [stdout:435]: 
+[finest]: [stdout:436]:   Queue: 
+[finest]: [stdout:437]: 
+[finest]: [stdout:438]: === [TIME 38] ===
+[finest]: [stdout:439]: Job 7, running on core 3, finished. Core 3 is now running job 13.
+[finest]: [stdout:440]:   Queue: 
+[finest]: [stdout:441]: 
+[finest]: [stdout:442]: Job 14, running on core 2, finished. Core 2 is now running job -1.
+[finest]: [stdout:443]:   Queue: 
+[finest]: [stdout:444]: 
+[finest]: [stdout:445]: At the end of time unit 38...
+[finest]: [stdout:446]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhh
+[finest]: [stdout:447]:   Core  1: -11111111111111111111cccccccccccccc9999
+[finest]: [stdout:448]:   Core  2: --222225555555aagggggggggggggggeeeeeee-
+[finest]: [stdout:449]:   Core  3: ----4444888888888888888ffffffffffff777d
+[finest]: [stdout:450]: 
+[finest]: [stdout:451]:   Queue: 
+[finest]: [stdout:452]: 
+[finest]: [stdout:453]: === [TIME 39] ===
+[finest]: [stdout:454]: At the end of time unit 39...
+[finest]: [stdout:455]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhh
+[finest]: [stdout:456]:   Core  1: -11111111111111111111cccccccccccccc99999
+[finest]: [stdout:457]:   Core  2: --222225555555aagggggggggggggggeeeeeee--
+[finest]: [stdout:458]:   Core  3: ----4444888888888888888ffffffffffff777dd
+[finest]: [stdout:459]: 
+[finest]: [stdout:460]:   Queue: 
+[finest]: [stdout:461]: 
+[finest]: [stdout:462]: === [TIME 40] ===
+[finest]: [stdout:463]: Job 13, running on core 3, finished. Core 3 is now running job -1.
+[finest]: [stdout:464]:   Queue: 
+[finest]: [stdout:465]: 
+[finest]: [stdout:466]: At the end of time unit 40...
+[finest]: [stdout:467]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhh
+[finest]: [stdout:468]:   Core  1: -11111111111111111111cccccccccccccc999999
+[finest]: [stdout:469]:   Core  2: --222225555555aagggggggggggggggeeeeeee---
+[finest]: [stdout:470]:   Core  3: ----4444888888888888888ffffffffffff777dd-
+[finest]: [stdout:471]: 
+[finest]: [stdout:472]:   Queue: 
+[finest]: [stdout:473]: 
+[finest]: [stdout:474]: === [TIME 41] ===
+[finest]: [stdout:475]: At the end of time unit 41...
+[finest]: [stdout:476]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhh
+[finest]: [stdout:477]:   Core  1: -11111111111111111111cccccccccccccc9999999
+[finest]: [stdout:478]:   Core  2: --222225555555aagggggggggggggggeeeeeee----
+[finest]: [stdout:479]:   Core  3: ----4444888888888888888ffffffffffff777dd--
+[finest]: [stdout:480]: 
+[finest]: [stdout:481]:   Queue: 
+[finest]: [stdout:482]: 
+[finest]: [stdout:483]: === [TIME 42] ===
+[finest]: [stdout:484]: At the end of time unit 42...
+[finest]: [stdout:485]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhh
+[finest]: [stdout:486]:   Core  1: -11111111111111111111cccccccccccccc99999999
+[finest]: [stdout:487]:   Core  2: --222225555555aagggggggggggggggeeeeeee-----
+[finest]: [stdout:488]:   Core  3: ----4444888888888888888ffffffffffff777dd---
+[finest]: [stdout:489]: 
+[finest]: [stdout:490]:   Queue: 
+[finest]: [stdout:491]: 
+[finest]: [stdout:492]: === [TIME 43] ===
+[finest]: [stdout:493]: At the end of time unit 43...
+[finest]: [stdout:494]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhhh
+[finest]: [stdout:495]:   Core  1: -11111111111111111111cccccccccccccc999999999
+[finest]: [stdout:496]:   Core  2: --222225555555aagggggggggggggggeeeeeee------
+[finest]: [stdout:497]:   Core  3: ----4444888888888888888ffffffffffff777dd----
+[finest]: [stdout:498]: 
+[finest]: [stdout:499]:   Queue: 
+[finest]: [stdout:500]: 
+[finest]: [stdout:501]: === [TIME 44] ===
+[finest]: [stdout:502]: Job 9, running on core 1, finished. Core 1 is now running job -1.
+[finest]: [stdout:503]:   Queue: 
+[finest]: [stdout:504]: 
+[finest]: [stdout:505]: At the end of time unit 44...
+[finest]: [stdout:506]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhhhh
+[finest]: [stdout:507]:   Core  1: -11111111111111111111cccccccccccccc999999999-
+[finest]: [stdout:508]:   Core  2: --222225555555aagggggggggggggggeeeeeee-------
+[finest]: [stdout:509]:   Core  3: ----4444888888888888888ffffffffffff777dd-----
+[finest]: [stdout:510]: 
+[finest]: [stdout:511]:   Queue: 
+[finest]: [stdout:512]: 
+[finest]: [stdout:513]: === [TIME 45] ===
+[finest]: [stdout:514]: Job 17, running on core 0, finished. Core 0 is now running job -1.
+[finest]: [stdout:515]:   Queue: 
+[finest]: [stdout:516]: 
+[finest]: [stdout:517]: FINAL TIMING DIAGRAM:
+[finest]: [stdout:518]:   Core  0: 00033566666666666aaaaaaaaaabbbbbbbbbhhhhhhhhh
+[finest]: [stdout:519]:   Core  1: -11111111111111111111cccccccccccccc999999999-
+[finest]: [stdout:520]:   Core  2: --222225555555aagggggggggggggggeeeeeee-------
+[finest]: [stdout:521]:   Core  3: ----4444888888888888888ffffffffffff777dd-----
+[finest]: [stdout:522]: 
+[finest]: [stdout:523]: Average Waiting Time: 8.56
+[finest]: [stdout:524]: Average Turnaround Time: 17.44
+[finest]: [stdout:525]: Average Response Time: 8.44
+[finest]: [stderr:1]: ==29306== Memcheck, a memory error detector
+[finest]: [stderr:2]: ==29306== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+[finest]: [stderr:3]: ==29306== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+[finest]: [stderr:4]: ==29306== Command: mp5-autograde/simulator -s ppri -c 4 mp5-autograde/examples/proc3.csv
+[finest]: [stderr:5]: ==29306== 
+[finest]: [stderr:6]: ==29306== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:7]: ==29306==    at 0x403AC6: priqueue_offer (libpriqueue.c:65)
+[finest]: [stderr:8]: ==29306==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:9]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:10]: ==29306== 
+[finest]: [stderr:11]: ==29306== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:12]: ==29306==    at 0x403BBF: priqueue_offer (libpriqueue.c:105)
+[finest]: [stderr:13]: ==29306==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:14]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:15]: ==29306== 
+[finest]: [stderr:16]: ==29306== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:17]: ==29306==    at 0x403AC6: priqueue_offer (libpriqueue.c:65)
+[finest]: [stderr:18]: ==29306==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:19]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:20]: ==29306== 
+[finest]: [stderr:21]: ==29306== Conditional jump or move depends on uninitialised value(s)
+[finest]: [stderr:22]: ==29306==    at 0x403BBF: priqueue_offer (libpriqueue.c:105)
+[finest]: [stderr:23]: ==29306==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:24]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:25]: ==29306== 
+[finest]: [stderr:26]: ==29306== 
+[finest]: [stderr:27]: ==29306== HEAP SUMMARY:
+[finest]: [stderr:28]: ==29306==     in use at exit: 424 bytes in 40 blocks
+[finest]: [stderr:29]: ==29306==   total heap usage: 67 allocs, 27 frees, 6,724 bytes allocated
+[finest]: [stderr:30]: ==29306== 
+[finest]: [stderr:31]: ==29306== 4 bytes in 1 blocks are still reachable in loss record 1 of 8
+[finest]: [stderr:32]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:33]: ==29306==    by 0x4027D3: scheduler_new_job (libscheduler.c:157)
+[finest]: [stderr:34]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:35]: ==29306== 
+[finest]: [stderr:36]: ==29306== 16 bytes in 1 blocks are still reachable in loss record 2 of 8
+[finest]: [stderr:37]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:38]: ==29306==    by 0x4025F1: scheduler_start_up (libscheduler.c:81)
+[finest]: [stderr:39]: ==29306==    by 0x401588: main (simulator.c:230)
+[finest]: [stderr:40]: ==29306== 
+[finest]: [stderr:41]: ==29306== 16 bytes in 1 blocks are still reachable in loss record 3 of 8
+[finest]: [stderr:42]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:43]: ==29306==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:44]: ==29306==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:45]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:46]: ==29306== 
+[finest]: [stderr:47]: ==29306== 16 bytes in 1 blocks are indirectly lost in loss record 4 of 8
+[finest]: [stderr:48]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:49]: ==29306==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:50]: ==29306==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:51]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:52]: ==29306== 
+[finest]: [stderr:53]: ==29306== 32 bytes in 2 blocks are definitely lost in loss record 5 of 8
+[finest]: [stderr:54]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:55]: ==29306==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:56]: ==29306==    by 0x402E53: scheduler_new_job (libscheduler.c:325)
+[finest]: [stderr:57]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:58]: ==29306== 
+[finest]: [stderr:59]: ==29306== 68 bytes in 17 blocks are indirectly lost in loss record 6 of 8
+[finest]: [stderr:60]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:61]: ==29306==    by 0x4027D3: scheduler_new_job (libscheduler.c:157)
+[finest]: [stderr:62]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:63]: ==29306== 
+[finest]: [stderr:64]: ==29306== 96 bytes in 6 blocks are indirectly lost in loss record 7 of 8
+[finest]: [stderr:65]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:66]: ==29306==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:67]: ==29306==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:68]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:69]: ==29306== 
+[finest]: [stderr:70]: ==29306== 356 (176 direct, 180 indirect) bytes in 11 blocks are definitely lost in loss record 8 of 8
+[finest]: [stderr:71]: ==29306==    at 0x4A069EE: malloc (vg_replace_malloc.c:270)
+[finest]: [stderr:72]: ==29306==    by 0x403A20: priqueue_offer (libpriqueue.c:48)
+[finest]: [stderr:73]: ==29306==    by 0x40285A: scheduler_new_job (libscheduler.c:168)
+[finest]: [stderr:74]: ==29306==    by 0x401ADD: main (simulator.c:344)
+[finest]: [stderr:75]: ==29306== 
+[finest]: [stderr:76]: ==29306== LEAK SUMMARY:
+[finest]: [stderr:77]: ==29306==    definitely lost: 208 bytes in 13 blocks
+[finest]: [stderr:78]: ==29306==    indirectly lost: 180 bytes in 24 blocks
+[finest]: [stderr:79]: ==29306==      possibly lost: 0 bytes in 0 blocks
+[finest]: [stderr:80]: ==29306==    still reachable: 36 bytes in 3 blocks
+[finest]: [stderr:81]: ==29306==         suppressed: 0 bytes in 0 blocks
+[finest]: [stderr:82]: ==29306== 
+[finest]: [stderr:83]: ==29306== For counts of detected and suppressed errors, rerun with: -v
+[finest]: [stderr:84]: ==29306== Use --track-origins=yes to see where uninitialised values come from
+[finest]: [stderr:85]: ==29306== ERROR SUMMARY: 18 errors from 6 contexts (suppressed: 6 from 6)
+[finer]: Testing for string "ERROR SUMMARY: 0 errors from 0 contexts" in process output.
+[finer]: String was not found in process output.
+[finer]: Testing for string "ERROR SUMMARY: 1 errors from 1 contexts" in process output.
+[finer]: String was not found in process output.
+[finer]: Testing for string "pthread" in process output.
+[finer]: String was not found in process output.
+[finer]: Testing for string "pthread" in process output.
+[finer]: String was not found in process output.
+[warning]: Not all memory was freed by target program!
+[finer]: Running command [make clean] with a timeout of 60000ms.
+[finer]: Completed execution of "make" with exit code = 0.
+[finest]: [stdout:1]: rm -f simulator queuetest *.o libscheduler/*.o libpriqueue/*.o
+[fine]: The assignment-specific grade() method completed successfully.
+[info]: The submission in "/srv/local/cs241grader/chen208/fa13-cs241/dgupta13" for assignment "mp5" has finished grading. Running final tasks...
